@@ -1,0 +1,20 @@
+JAVAC=javac
+JAVA=java
+JAR=jar
+SOURCE=*.java
+CLASSES=$(SOURCE:.java=.class)
+JARFILE=CatalogoRemeras.jar
+DOC=docs
+
+all: compile jar
+
+compile: $(CLASSES)
+
+jar: $(CLASSES)
+	$(JAR) cfe $(JARFILE) Main $(CLASSES)
+
+clean:
+	rm -f $(CLASSES) $(JARFILE)
+
+doc:
+	javadoc -d $(DOC) $(SOURCE)
